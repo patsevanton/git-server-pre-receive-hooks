@@ -63,7 +63,6 @@ while read -r OLDREV NEWREV REFNAME; do
         echo "else"
         echo "$OLDREV"
         echo "$NEWREV"
-        echo "git rev-list \"$OLDREV\"..\"$NEWREV\" --not --all"
         SPAN=$(git rev-list "$OLDREV".."$NEWREV" --not --all)
     fi
 
@@ -94,4 +93,3 @@ while read -r OLDREV NEWREV REFNAME; do
 done
 
 set +x
-
