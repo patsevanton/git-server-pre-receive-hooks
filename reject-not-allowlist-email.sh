@@ -13,10 +13,7 @@
 # BOT_PATTERN=^svc-
 # OSS_ORGS=^(company-forks|opensource)/
 
-set -x
-
-IFS=","
-DOMAIN_ARRAY=['group1.com','group2.com']
+declare -a DOMAIN_ARRAY=("group1.com" "group2.com")
 COMPANY_NAME=[MyCompany]
 CONTACT_EMAIL=help@company.com
 SLACK=#help-git
@@ -28,7 +25,7 @@ if [[ -z "$DOMAIN" ]] \
     && [[ -z "$SLACK" ]] \
     && [[ -z "$HELP_URL" ]]
 then
-    echo "WARNING: the GitHub Enterprise site administrator must configure the reject-external-emails.sh script!"
+    echo "WARNING: Must configure the reject-external-emails.sh script!"
     exit 0
 fi
 
@@ -56,13 +53,8 @@ while read -r OLDREV NEWREV REFNAME; do
     elif [[ "$OLDREV" = "$ZERO_COMMIT" ]]
     then
         # New branch or tag
-        echo "then"
-        echo "$NEWREV"
         SPAN=$(git rev-list "$NEWREV" --not --all)
     else
-        echo "else"
-        echo "$OLDREV"
-        echo "$NEWREV"
         SPAN=$(git rev-list "$OLDREV".."$NEWREV" --not --all)
     fi
 
@@ -72,11 +64,10 @@ while read -r OLDREV NEWREV REFNAME; do
 
         for i in "${DOMAIN_ARRAY[@]}"
         do
-            echo "$AUTHOR_EMAIL"
-            echo "$i"
             if [[ "$AUTHOR_EMAIL" == *"$i"* ]];
             then
                 echo "OK"
+                exit 0
             else
                 echo "WARNING:"
                 echo "WARNING: At least one commit on '${REFNAME#refs/heads/}' does not have an '$DOMAIN_ARRAY' email address."
@@ -91,5 +82,3 @@ while read -r OLDREV NEWREV REFNAME; do
     done
 
 done
-
-set +x
