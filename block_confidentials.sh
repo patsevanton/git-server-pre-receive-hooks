@@ -3,11 +3,9 @@
 #
 # ⚠ USE WITH CAUTION ⚠
 #
-# Pre-receive hook that will block any new commits that contain passwords,
-# tokens, or other confidential information matched by regex
+# Pre-receive hook that will block any new commits that contain private key
+# or other confidential information matched by regex
 #
-# More details on pre-receive hooks and how to apply them can be found on
-# https://git.io/fNLf0
 #
 
 # ------------------------------------------------------------------------------
@@ -78,7 +76,7 @@ done
 # ------------------------------------------------------------------------------
 if [ ${found} -gt 0 ]; then
   # Found errors, exit with error
-  echo "[POLICY BLOCKED] You're trying to commit a password, token, or confidential information"
+  echo "[POLICY BLOCKED] You're trying to commit a private key or confidential information"
   exit 1
 else
   # No errors found, exit with success
