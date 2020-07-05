@@ -39,7 +39,7 @@ while read oldrev newrev refname; do
     do
       case $FILE in
       *.zip|*.gz|*.tgz )
-        echo "We have restricted committing that filetype. Do not store archive in git"
+        echo "We have restricted committing that filetype. Do not store archive in git."
         exit 1
         ;;
       esac
