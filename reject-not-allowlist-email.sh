@@ -25,7 +25,7 @@ if [[ -z "$DOMAIN" ]] \
     && [[ -z "$SLACK" ]] \
     && [[ -z "$HELP_URL" ]]
 then
-    echo "WARNING: Must configure the reject-external-emails.sh script!"
+    echo "WARNING: the GitHub Enterprise site administrator must configure the reject-external-emails.sh script!"
     exit 0
 fi
 
