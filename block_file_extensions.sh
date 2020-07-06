@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Fork hook from https://github.com/github/platform-samples/tree/master/pre-receive-hooks
 #
 # Pre-receive hook that will block any new commits that contain files ending
 # with .gz, .zip or .tgz
