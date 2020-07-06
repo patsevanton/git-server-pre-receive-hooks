@@ -1,4 +1,6 @@
 #!/bin/bash -eu
+
+# Fork hook from https://github.com/github/platform-samples/tree/master/pre-receive-hooks
 set -o pipefail
 
 nullsha="0000000000000000000000000000000000000000"
