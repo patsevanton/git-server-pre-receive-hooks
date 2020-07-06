@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Fork hook from https://www.majilesh.com/author/majilesh/
+
 commit_format="(JIRA|PROJECTKEY|MULE|ECOM|SAP|XLR-[1-9]+Merge)"
 zero_commit="0000000000000000000000000000000000000000"
 
