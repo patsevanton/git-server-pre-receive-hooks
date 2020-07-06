@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Fork hook from https://github.com/github/platform-samples/tree/master/pre-receive-hooks
 #
 # Hook that rejects pushes that contain commits with invalid email addresses
 #
