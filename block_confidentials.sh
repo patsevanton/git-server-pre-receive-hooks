@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Fork hook from https://github.com/github/platform-samples/tree/master/pre-receive-hooks
 #
 # ⚠ USE WITH CAUTION ⚠
 #
